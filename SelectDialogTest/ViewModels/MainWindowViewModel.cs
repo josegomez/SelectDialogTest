@@ -14,8 +14,10 @@ namespace SelectDialogTest.ViewModels
         {
             try
             {
-                OpenFileDialog dialog = null;// new OpenFileDialog();
+                Log.Information("Button Click");
+                OpenFileDialog dialog = new OpenFileDialog();
                 var file = await dialog.ShowAsync(this._mainWindow);
+                Log.Information("All Good");
             }
             catch(Exception e)
             {
