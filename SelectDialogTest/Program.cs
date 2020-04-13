@@ -28,10 +28,14 @@ namespace SelectDialogTest
         }
 
         // Avalonia configuration, don't remove; also used by visual designer.
-        public static AppBuilder BuildAvaloniaApp()
-            => AppBuilder.Configure<App>()
-                .UsePlatformDetect()
-                .LogToDebug()
-                .UseReactiveUI();
+	public static AppBuilder BuildAvaloniaApp()
+        {
+            var app = AppBuilder.Configure<App>();
+            app.UsePlatformDetect();
+            app.LogToDebug();
+            app.UseReactiveUI();
+            Avalonia.Dialogs.ManagedFileDialogExtensions.UseManagedSystemDialogs(app);
+            return app;
+        } 
     }
 }
